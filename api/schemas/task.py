@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class TaskBase(BaseModel):
-    title = Optional[str] = Field(None, example="Pick up clothese")
+    title: Optional[str] = Field(None, example="Pick up clothese")
 
 class TaskCreate(TaskBase):
     pass
@@ -12,9 +12,12 @@ class TaskCreate(TaskBase):
 class TaskCreateResponse(TaskCreate):
     id: int
 
+    class Config:
+        orm_mode = True
+
 class Task(TaskBase):
     id: int
     done: bool = Field(False, description="完了フラグ")
 
-class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
