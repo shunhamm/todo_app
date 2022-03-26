@@ -10,6 +10,9 @@ fastapi = "^0.75.0"
 uvicorn = {extras = ["standard"], version = "^0.17.5"}
 
 [tool.poetry.dev-dependencies]
+pytest-asyncio = "^0.18.3"
+aiosqlite = "^0.17.0"
+httpx = "^0.22.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
